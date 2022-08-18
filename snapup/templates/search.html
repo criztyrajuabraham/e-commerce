@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block metadescription %}
+   we have different type of mobiles
+{% endblock %}
+{% block title %}
+  Search
+{% endblock %}
+{% block content %}
+<div>
+    <p class="text-center my_search_text">you have search for :<b>"{{query}}"</b></p>
+</div>
+<div class="container">
+    <div class="row mx_auto">
+        {% for pro in productt %}
+        <div class="my_bottom_margi col-9 col-sm-12 col-md-4 xol-lg-4">
+             <div class="card text-center" style="min-width-18rem;">
+                <a href="{{pro.get_url}}"><img class="card-img-top my_image" src="{{pro.img.url}}" alt="{{pro.name}}"></a>
+             <div class="card-body">
+                 <h4>{{pro.name}}</h4>
+                  <p>${{pro.price}}</p>
+             </div>
+             </div>
+            {% empty %}
+            <div class="row mx-auto">
+                <p class="text-center my_search_text"> 0 results found</p>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
